@@ -7,6 +7,7 @@
 
 // #include "key_codes.h" 	// define los valores de KEY1, KEY2, KEY3
 #include "system.h"
+#include "keyCode.h"
 #include "sys/alt_irq.h"
 
 // extern variables
@@ -38,7 +39,7 @@ static const unsigned char seg7[10] = {
 	0x6F  // 9
 };
 
-extern volatile int modo_ajuste;
+extern int flag_stopTimer;
 
 void interval_timer_isr()
 {
@@ -46,10 +47,9 @@ void interval_timer_isr()
 	*(interval_timer_ptr) = 0; // Borra la interrupcion
 
 	ticks++;
-
-	if (!modo_ajuste)
+	if (flag_stopTimer == DISABLE)
 	{
-		if (ticks >= 10)
+		if (ticks >= tick_1s)
 		{
 			ticks = 0;
 			segundos++;

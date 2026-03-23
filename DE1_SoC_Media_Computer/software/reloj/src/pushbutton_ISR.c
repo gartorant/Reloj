@@ -22,13 +22,13 @@ void pushbutton_ISR()
 	press = *(KEY_ptr + 3); // lee que boton se ha pulsado
 	*(KEY_ptr + 3) = 0;		// borra la interrupcion
 
-	if (press == 0) // en caso de no pulsar ningun boton.
+	if (press == 0)
 	{
-		key_pressed = -1;
+		key_pressed = KEY_NULL;
 	}
-	else if ((press & (press - 1))) // en caso de que haya mas de un boton pulsado.
+	else if ((press & (press - 1)))
 	{
-		key_pressed = -1;
+		key_pressed = KEY_NULL;
 	}
 	else if (press & (1 << KEY3))
 	{

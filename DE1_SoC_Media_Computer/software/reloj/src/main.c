@@ -28,6 +28,8 @@ volatile int horas = 0;
 volatile int pattern_low = 0;
 volatile int pattern_high = 0;
 
+int flag_stopTimer = 0;
+
 int main(void)
 {
 	// configuramos e iniciamos timer
@@ -54,8 +56,10 @@ int main(void)
 	{
 		*(HEX2_HEX0_ptr) = pattern_low;	 // Visualiza el patron en HEX2 ... HEX0
 		*(HEX5_HEX3_ptr) = pattern_high; // Visualiza el patron en HEX5 ... HEX3
-
-		task_keyButtons();
+		if (flag_stopTimer == ENABLE)
+		{
+			task_keyButtons();
+		}
 	}
 
 	return 0;
@@ -66,7 +70,8 @@ void task_keyButtons(void)
 	switch (key_pressed)
 	{
 	case KEY0:
-		/* manter el temporizador*/
+		/* detener el temporizador*/
+		flag_stopTimer = !flag_stopTimer;
 		break;
 	case KEY1:
 		/* incrementar segundos */
