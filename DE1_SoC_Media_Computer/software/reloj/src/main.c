@@ -14,7 +14,7 @@ void interval_timer_isr();
 void pushbutton_ISR();
 
 // Parametros iniciales
-volatile int modo_ajuste = 0;
+volatile int key_pressed = KEY2;
 
 volatile int ticks = 0;
 volatile int segundos = 0;
