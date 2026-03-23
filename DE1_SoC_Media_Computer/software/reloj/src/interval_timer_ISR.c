@@ -39,7 +39,7 @@ static const unsigned char seg7[10] = {
 	0x6F  // 9
 };
 
-extern int flag_stopTimer;
+extern volatile int flag_stopTimer;
 
 void interval_timer_isr()
 {
