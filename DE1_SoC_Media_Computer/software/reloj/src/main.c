@@ -63,17 +63,19 @@ void task_keyButtons(void)
 {
 	switch (key_pressed)
 	{
+	case KEY0:
+		/* manter el temporizador*/
+		break;
 	case KEY1:
-		/* code */
+		/* incrementar segundos */
 		break;
 	case KEY2:
-		/* code */
+		/* incrementar minutos*/
 		break;
 	case KEY3:
-		/* code */
+		/* incrementar horas*/
 		break;
 	default:
-
 		break;
 	}
 }
