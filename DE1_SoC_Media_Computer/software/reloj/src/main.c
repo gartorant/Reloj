@@ -68,12 +68,24 @@ void task_keyButtons(void)
 		break;
 	case KEY1:
 		/* incrementar segundos */
+		if (segundos < max_seg)
+			segundos++;
+		else
+			segundos = 0;
 		break;
 	case KEY2:
 		/* incrementar minutos*/
+		if (minutos < max_min)
+			minutos++;
+		else
+			minutos = 0;
 		break;
 	case KEY3:
 		/* incrementar horas*/
+		if (horas < max_horas)
+			horas++;
+		else
+			horas = 0;
 		break;
 	default:
 		break;
