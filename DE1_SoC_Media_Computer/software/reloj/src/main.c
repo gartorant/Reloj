@@ -70,7 +70,7 @@ void task_keyButtons(void)
 	switch (key_pressed)
 	{
 	case KEY0:
-		/* detener el temporizador*/
+		/* detener o encender el temporizador*/
 		flag_stopTimer = !flag_stopTimer;
 		break;
 	case KEY1:
