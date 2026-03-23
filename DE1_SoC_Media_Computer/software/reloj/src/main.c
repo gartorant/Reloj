@@ -19,9 +19,9 @@ void pushbutton_ISR();
 void task_keyButtons(void);
 
 // Parametros iniciales
-volatile int key_pressed = KEY_NULL;
+volatile key_t key_pressed = KEY_NULL;
 
-volatile timer_t timer_100ms = {0};
+volatile timer_t timer_100ms;
 
 volatile int pattern_low = 0;
 volatile int pattern_high = 0;
@@ -55,9 +55,9 @@ int main(void)
 		*(HEX2_HEX0_ptr) = pattern_low;	 // Visualiza el patron en HEX2 ... HEX0
 		*(HEX5_HEX3_ptr) = pattern_high; // Visualiza el patron en HEX5 ... HEX3
 		task_keyButtons();
-		if (timer_100ms->flag_tick)
+		if (timer_100ms.flag_tick)
 		{
-			timer_100ms->flag_tick = 0;
+			timer_100ms.flag_tick = 0;
 			task_timerTick(&timer_100ms);
 		}
 		task_printTime_LCD(&timer_100ms);
@@ -78,30 +78,30 @@ void task_keyButtons(void)
 		/* incrementar segundos */
 		if (flag_stopTimer == ENABLE)
 		{
-			if (segundos < max_seg)
-				segundos++;
+			if (timer_100ms.segundos < max_seg)
+				timer_100ms.segundos++;
 			else
-				segundos = 0;
+				timer_100ms.segundos = 0;
 		}
 		break;
 	case KEY2:
 		/* incrementar minutos*/
 		if (flag_stopTimer == ENABLE)
 		{
-			if (minutos < max_min)
-				minutos++;
+			if (timer_100ms.minutos < max_min)
+				timer_100ms.minutos++;
 			else
-				minutos = 0;
+				timer_100ms.minutos = 0;
 		}
 		break;
 	case KEY3:
 		/* incrementar horas*/
 		if (flag_stopTimer == ENABLE)
 		{
-			if (horas < max_horas)
-				horas++;
+			if (timer_100ms.horas < max_horas)
+				timer_100ms.horas++;
 			else
-				horas = 0;
+				timer_100ms.horas = 0;
 		}
 		break;
 	default:

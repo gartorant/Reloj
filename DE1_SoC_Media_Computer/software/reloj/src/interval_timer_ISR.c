@@ -5,10 +5,10 @@
  *      Author: iioanno
  */
 
-#include "interval_timer_ISR.h"
 #include "system.h"
-#include "keyCode.h"
+#include "interval_timer_ISR.h"
 #include "sys/alt_irq.h"
+#include "keyCode.h"
 
 extern volatile timer_t timer_100ms = {0};
 

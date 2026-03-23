@@ -9,10 +9,6 @@
 #include "keyCode.h"
 #include "sys/alt_irq.h"
 
-extern volatile int segundos;
-extern volatile int minutos;
-extern volatile int horas;
-
 extern volatile int key_pressed;
 
 void pushbutton_ISR()
