@@ -1,7 +1,7 @@
 typedef enum
 {
+    KEY0,
     KEY1,
     KEY2,
-    KEY3,
-    KEY4
-} eky_t;
+    KEY3
+} key_t;

@@ -14,6 +14,9 @@
 void interval_timer_isr();
 void pushbutton_ISR();
 
+// Tareas
+void task_keyButtons(void);
+
 // Parametros iniciales
 volatile int key_pressed = KEY2;
 
@@ -28,12 +31,12 @@ volatile int pattern_high = 0;
 int main(void)
 {
 	// configuramos e iniciamos timer
-	volatile int *interval_timer_ptr = (int *)TIMER_BASE; // Direcci�n Temporizador
+	volatile int *interval_timer_ptr = (int *)TIMER_BASE; // Direccion Temporizador
 
-	volatile int *HEX2_HEX0_ptr = (int *)HEX2_HEX0_BASE; // Direcci�n HEX2_HEX0
-	volatile int *HEX5_HEX3_ptr = (int *)HEX5_HEX3_BASE; // Direcci�n HEX5_HEX3
+	volatile int *HEX2_HEX0_ptr = (int *)HEX2_HEX0_BASE; // Direccion HEX2_HEX0
+	volatile int *HEX5_HEX3_ptr = (int *)HEX5_HEX3_BASE; // Direccion HEX5_HEX3
 
-	volatile int *KEY_ptr = (int *)PUSHBUTTONS_BASE; // Direcci�n pulsadores KEY
+	volatile int *KEY_ptr = (int *)PUSHBUTTONS_BASE; // Direccion pulsadores KEY
 
 	int counter = 0x989680; // interrupt cada 100ms
 	*(interval_timer_ptr + 0x2) = (counter & 0xFFFF);
@@ -49,9 +52,22 @@ int main(void)
 
 	while (1)
 	{
-		*(HEX2_HEX0_ptr) = pattern_low;	 // Visualiza el patr�n en HEX2 ... HEX0
-		*(HEX5_HEX3_ptr) = pattern_high; // Visualiza el patr�n en HEX5 ... HEX3
+		*(HEX2_HEX0_ptr) = pattern_low;	 // Visualiza el patron en HEX2 ... HEX0
+		*(HEX5_HEX3_ptr) = pattern_high; // Visualiza el patron en HEX5 ... HEX3
 	}
 
 	return 0;
+}
+
+void task_keyButtons(void)
+{
+	switch (expression)
+	{
+	case constant expression:
+		/* code */
+		break;
+
+	default:
+		break;
+	}
 }
