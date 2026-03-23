@@ -9,45 +9,43 @@
 #include "keyCode.h"
 #include "sys/alt_irq.h"
 
-extern volatile int segundos;
-extern volatile int minutos;
-extern volatile int horas;
-extern volatile int modo_ajuste;
+extern volatile boton_t key_pressed;
 
 void pushbutton_ISR()
 {
 	volatile int *KEY_ptr = (int *)PUSHBUTTONS_BASE;
-	int press;
-
+	unsigned int press;
 	press = *(KEY_ptr + 3); // lee que boton se ha pulsado
-	*(KEY_ptr + 3) = 0;		// borra la interrupci�n
+	*(KEY_ptr + 3) = 0;		// borra la interrupcion
 
-	if (press & 0x1)
-	{ // KEY0->activar/desactivar modo ajuste
-		modo_ajuste = !modo_ajuste;
-	}
-
-	if (modo_ajuste)
+	if (press == 0)
 	{
-		if (press & 0x2)
-		{ // KEY1->resetea segundos a 0
-			segundos = 0;
-		}
-		if (press & 0x4)
-		{ // KEY2 ->aumentar minutos
-			minutos++;
-			if (minutos >= 60)
-				minutos = 0;
-		}
-		if (press & 0x8)
-		{ // KEY3->aumentar horas
-			horas++;
-			if (horas >= 24)
-				horas = 0;
-		}
+		key_pressed = KEY_NULL;
 	}
+	else if ((press & (press - 1)))
+	{
+		key_pressed = KEY_NULL;
+	}
+	else if (press & (1 << KEY3))
+	{
+		key_pressed = KEY3;
+	}
+	else if (press & (1 << KEY2))
+	{
+		key_pressed = KEY2;
+	}
+	else if (press & (1 << KEY1))
+	{
+		key_pressed = KEY1;
+	}
+	else if (press & (1 << KEY0))
+	{
+		key_pressed = KEY0;
+	}
+
 	while (*KEY_ptr)
-		; // esperar a que se suelte el pulsador KEY
+	{
+	};
 
 	return;
 }
