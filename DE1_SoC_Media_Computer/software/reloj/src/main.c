@@ -19,9 +19,9 @@ void pushbutton_ISR();
 void task_keyButtons(void);
 
 // Parametros iniciales
-volatile key_t key_pressed = KEY_NULL;
+volatile boton_t key_pressed = KEY_NULL;
 
-volatile timer_t timer_100ms;
+volatile reloj_t timer_100ms;
 
 volatile int pattern_low = 0;
 volatile int pattern_high = 0;

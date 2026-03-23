@@ -10,7 +10,7 @@
 #include "interval_timer_ISR.h"
 #include "keyCode.h"
 
-extern volatile timer_t timer_100ms;
+extern volatile reloj_t timer_100ms;
 
 volatile int h_d = 0;
 volatile int h_u = 0;
@@ -84,5 +84,4 @@ void task_printTime_LCD(void)
 	// dividir en parte alta y baja
 	pattern_low = (seg7[m_u] << 16) | (seg7[s_d] << 8) | seg7[s_u];
 	pattern_high = (seg7[h_d] << 16) | (seg7[h_u] << 8) | seg7[m_d];
-	return;
 }

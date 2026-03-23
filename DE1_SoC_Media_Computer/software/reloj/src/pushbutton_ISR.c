@@ -9,7 +9,7 @@
 #include "keyCode.h"
 #include "sys/alt_irq.h"
 
-extern volatile int key_pressed;
+extern volatile boton_t key_pressed;
 
 void pushbutton_ISR()
 {

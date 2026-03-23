@@ -5,7 +5,7 @@ typedef enum
     KEY1,
     KEY2,
     KEY3
-} key_t;
+} boton_t;
 
 #define max_horas 23u
 #define max_min 59u
