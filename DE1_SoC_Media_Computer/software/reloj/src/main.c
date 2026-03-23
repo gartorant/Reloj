@@ -54,6 +54,8 @@ int main(void)
 	{
 		*(HEX2_HEX0_ptr) = pattern_low;	 // Visualiza el patron en HEX2 ... HEX0
 		*(HEX5_HEX3_ptr) = pattern_high; // Visualiza el patron en HEX5 ... HEX3
+
+		task_keyButtons();
 	}
 
 	return 0;
