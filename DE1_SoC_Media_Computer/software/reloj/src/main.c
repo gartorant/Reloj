@@ -6,6 +6,7 @@
  */
 
 #include "system.h"
+#include "keyCode.h"
 #include "sys/alt_irq.h"
 #include <stdio.h> //Necesario para el NULL
 
