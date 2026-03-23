@@ -11,6 +11,6 @@ typedef enum
 #define max_min 59u
 #define max_seg 59u
 
-#define tick_1s 10u
+#define tick_100ms 10u
 #define DISABLE 0u
 #define ENABLE 1u

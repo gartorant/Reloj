@@ -49,7 +49,7 @@ void interval_timer_isr()
 	ticks++;
 	if (flag_stopTimer == DISABLE)
 	{
-		if (ticks >= tick_1s)
+		if (ticks >= tick_100ms)
 		{
 			ticks = 0;
 			segundos++;
