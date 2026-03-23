@@ -145,7 +145,6 @@ ELF := reloj.elf
 C_SRCS += src/main.c
 C_SRCS += src/interval_timer_ISR.c
 C_SRCS += src/pushbutton_ISR.c
-C_SRCS += src/pushbuttons.c
 CXX_SRCS :=
 ASM_SRCS :=
 
