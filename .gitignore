@@ -1,0 +1,36 @@
+# Quartus / FPGA build outputs
+DE1_SoC_Media_Computer/.qsys_edit/
+DE1_SoC_Media_Computer/db/
+DE1_SoC_Media_Computer/incremental_db/
+DE1_SoC_Media_Computer/output_files/
+DE1_SoC_Media_Computer/*.bak
+DE1_SoC_Media_Computer/*.elf
+DE1_SoC_Media_Computer/*.map
+DE1_SoC_Media_Computer/*.objdump
+DE1_SoC_Media_Computer/*.sopcinfo
+DE1_SoC_Media_Computer/c5_pin_model_dump.txt
+DE1_SoC_Media_Computer/DE1_SoC_pin_assignments.csv
+
+# Nios II / Eclipse workspace metadata
+DE1_SoC_Media_Computer/software/.metadata/
+DE1_SoC_Media_Computer/software/**/.settings/
+DE1_SoC_Media_Computer/software/**/.project
+DE1_SoC_Media_Computer/software/**/.cproject
+DE1_SoC_Media_Computer/software/**/create-this-app
+DE1_SoC_Media_Computer/software/**/create-this-bsp
+
+# Per-project build outputs
+DE1_SoC_Media_Computer/software/**/obj/
+DE1_SoC_Media_Computer/software/**/*.elf
+DE1_SoC_Media_Computer/software/**/*.map
+DE1_SoC_Media_Computer/software/**/*.objdump
+
+# Generated BSPs are fully reproducible
+DE1_SoC_Media_Computer/software/*_bsp/
+
+# Common editor / OS noise
+*.swp
+*.swo
+*~
+Thumbs.db
+.DS_Store
