@@ -61,13 +61,19 @@ int main(void)
 
 void task_keyButtons(void)
 {
-	switch (expression)
+	switch (key_pressed)
 	{
-	case constant expression:
+	case KEY1:
 		/* code */
 		break;
-
+	case KEY2:
+		/* code */
+		break;
+	case KEY3:
+		/* code */
+		break;
 	default:
+
 		break;
 	}
 }
