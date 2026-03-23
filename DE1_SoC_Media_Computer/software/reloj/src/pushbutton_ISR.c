@@ -48,7 +48,8 @@ void pushbutton_ISR()
 	}
 
 	while (*KEY_ptr)
-		; // esperar a que se suelte el pulsador KEY
+	{
+	};
 
 	return;
 }
