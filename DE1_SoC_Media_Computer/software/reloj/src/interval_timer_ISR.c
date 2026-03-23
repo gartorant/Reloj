@@ -6,11 +6,11 @@
  */
 
 #include "system.h"
-#include "interval_timer_ISR.h"
 #include "sys/alt_irq.h"
+#include "interval_timer_ISR.h"
 #include "keyCode.h"
 
-extern volatile timer_t timer_100ms = {0};
+extern volatile timer_t timer_100ms;
 
 volatile int h_d = 0;
 volatile int h_u = 0;
@@ -44,42 +44,42 @@ void interval_timer_isr()
 	timer_100ms.flag_tick = 1;
 }
 
-void task_timerTick(timer_t *timer)
+void task_timerTick(void)
 {
 	if (!flag_stopTimer)
 	{
-		timer->tick++;
-		if (timer->tick >= tick_100ms)
+		timer_100ms.tick++;
+		if (timer_100ms.tick >= tick_100ms)
 		{
-			timer->tick = 0;
-			timer->segundos++;
-			if (timer->segundos >= (max_seg + 1))
+			timer_100ms.tick = 0;
+			timer_100ms.segundos++;
+			if (timer_100ms.segundos >= (max_seg + 1))
 			{
-				timer->segundos = 0;
-				timer->minutos++;
-				if (timer->minutos >= (max_min + 1))
+				timer_100ms.segundos = 0;
+				timer_100ms.minutos++;
+				if (timer_100ms.minutos >= (max_min + 1))
 				{
-					timer->minutos = 0;
-					timer->horas++;
-					if (timer->horas >= (max_horas + 1))
-						timer->horas = 0;
+					timer_100ms.minutos = 0;
+					timer_100ms.horas++;
+					if (timer_100ms.horas >= (max_horas + 1))
+						timer_100ms.horas = 0;
 				}
 			}
 		}
 	}
 }
 
-void task_printTime_LCD(timer_t *timer)
+void task_printTime_LCD(void)
 {
 	// descomponer cada digito para visualizacion
-	h_d = timer->horas / 10;
-	h_u = timer->horas % 10;
+	h_d = timer_100ms.horas / 10;
+	h_u = timer_100ms.horas % 10;
 
-	m_d = timer->minutos / 10;
-	m_u = timer->minutos % 10;
+	m_d = timer_100ms.minutos / 10;
+	m_u = timer_100ms.minutos % 10;
 
-	s_d = timer->segundos / 10;
-	s_u = timer->segundos % 10;
+	s_d = timer_100ms.segundos / 10;
+	s_u = timer_100ms.segundos % 10;
 
 	// dividir en parte alta y baja
 	pattern_low = (seg7[m_u] << 16) | (seg7[s_d] << 8) | seg7[s_u];

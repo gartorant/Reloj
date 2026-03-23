@@ -7,5 +7,5 @@ typedef struct
     int flag_tick;
 } timer_t;
 
-void task_timerTick(timer_t *timer);
-void task_printTime_LCD(timer_t *timer);
+void task_timerTick(void);
+void task_printTime_LCD(void);

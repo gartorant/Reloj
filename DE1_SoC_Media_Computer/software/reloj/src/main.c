@@ -58,9 +58,9 @@ int main(void)
 		if (timer_100ms.flag_tick)
 		{
 			timer_100ms.flag_tick = 0;
-			task_timerTick(&timer_100ms);
+			task_timerTick();
 		}
-		task_printTime_LCD(&timer_100ms);
+		task_printTime_LCD();
 	}
 
 	return 0;
